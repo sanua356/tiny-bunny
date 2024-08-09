@@ -9,7 +9,7 @@ Mini-game "21 points" in the universe of the visual novel "Tiny Bunny". Develope
 - Typescript
 - Feature Sliced Design (FSD)
 
-# Install
+## Install
 1. Clone the project repository: https://github.com/sanua356/tiny-bunny.git
 2. Install dependencies: ``` npm install```
 3. Run project: ``` npm run dev ```
