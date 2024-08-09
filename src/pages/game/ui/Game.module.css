@@ -50,3 +50,11 @@
 		right: -10px;
 	}
 }
+@media screen and (max-width: 768px) {
+	.sound {
+		left: auto;
+		top: 12px;
+		right: 10vh;
+		bottom: auto;
+	}
+}

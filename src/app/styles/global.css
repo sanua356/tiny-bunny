@@ -7,6 +7,9 @@
 body {
 	cursor: url('@/shared/assets/images/cursor.png'), pointer;
 }
+.noevents {
+	pointer-events: none;
+}
 .Toastify__toast-container {
 	width: 20vw;
 }

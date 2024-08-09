@@ -3,6 +3,11 @@ import { toast } from 'react-toastify';
 
 import { TGameCard } from '@/entites/gameCards';
 import { HatchButton } from '@/entites/hatchButton';
+import { TSoundSliceStore } from '@/entites/sound';
+import getCardSound from '@/shared/assets/sounds/get_card.ogg';
+import hoverSound from '@/shared/assets/sounds/hover.ogg';
+import nextStepSound from '@/shared/assets/sounds/next_step.ogg';
+import viewCardsSound from '@/shared/assets/sounds/view_cards.ogg';
 
 import { GameStatuses } from '../../lib';
 import {
@@ -22,6 +27,7 @@ export const PlayerActions = () => {
 	const unusedCards = useSelector<TDeskSliceStore>((state) => state.desk.unusedCards) as TGameCard[];
 	const playerCards = useSelector<TDeskSliceStore>((state) => state.desk.playerCards) as TGameCard[];
 	const opponentCards = useSelector<TDeskSliceStore>((state) => state.desk.opponentCards) as TGameCard[];
+	const isActivatedSound = useSelector<TSoundSliceStore>((state) => state.sound.isActivated) as boolean;
 
 	const nextStepButtonDisabled = (
 		gameStatus !== GameStatuses.StepPlayer ||
@@ -63,6 +69,8 @@ export const PlayerActions = () => {
 				className={s.button}
 				onClick={onNextStepHandler}
 				disabled={nextStepButtonDisabled}
+				clickSound={isActivatedSound ? nextStepSound : undefined}
+				hoverSound={isActivatedSound ? hoverSound : undefined}
 			>
 				Передать ход
 			</HatchButton>
@@ -70,6 +78,8 @@ export const PlayerActions = () => {
 				className={s.button}
 				onClick={onGetCardHandler}
 				disabled={getCardButtonDisabled}
+				clickSound={isActivatedSound ? getCardSound : undefined}
+				hoverSound={isActivatedSound ? hoverSound : undefined}
 			>
 				Взять карту
 			</HatchButton>
@@ -77,6 +87,8 @@ export const PlayerActions = () => {
 				className={s.button}
 				onClick={onEndGameHandler}
 				disabled={endGameButtonDisabled}
+				clickSound={isActivatedSound ? viewCardsSound : undefined}
+				hoverSound={isActivatedSound ? hoverSound : undefined}
 			>
 				Вскрыть карты
 			</HatchButton>

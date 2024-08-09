@@ -9,13 +9,39 @@ type Props = {
 	children?: string | ReactNode;
 	className?: string;
 	disabled?: boolean;
+	hoverSound?: string;
+	clickSound?: string;
 }
 
-export const HatchButton = ({ children, onClick, className, disabled, type = 'button' }: Props) => {
+export const HatchButton = ({
+	children,
+	onClick,
+	className,
+	disabled,
+	hoverSound,
+	clickSound,
+	type = 'button'
+}: Props) => {
+	const onClickHandler = () => {
+		if (clickSound) {
+			const sound = new Audio(clickSound);
+			sound.play();
+		}
+		onClick?.();
+	}
+
+	const onMouseEnterHandler = () => {
+		if (hoverSound) {
+			const sound = new Audio(hoverSound);
+			sound.play();
+		}
+	}
+
 	return (
 		<button
 			type={type}
-			onClick={onClick}
+			onClick={onClickHandler}
+			onMouseEnter={onMouseEnterHandler}
 			disabled={disabled}
 			className={clsx(s.button, className)}
 		>

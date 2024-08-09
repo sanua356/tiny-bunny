@@ -1,8 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { HatchButton } from "@/entites/hatchButton"
+import { PlaySoundButton, TSoundSliceStore } from "@/entites/sound"
 import logo from '@/shared/assets/images/logo.png'
+import authorsSound from '@/shared/assets/sounds/authors.ogg'
+import hoverSound from '@/shared/assets/sounds/hover.ogg'
+import ambientSound from '@/shared/assets/sounds/menu.ogg'
+import rulesSound from '@/shared/assets/sounds/rules.ogg'
 
 import { AboutGameModal } from "./aboutGameModal"
 import { AuthorsModal } from "./authorsModal"
@@ -16,8 +22,18 @@ export const HomePage = () => {
 	const [isOpenedModalAuthors, setIsOpenedModalAuthors] = useState<boolean>(false);
 	const [isOpenedModalAboutGame, setIsOpenedModalAboutGame] = useState<boolean>(false);
 
+	const isActivatedSound = useSelector<TSoundSliceStore>((state) => state.sound.isActivated) as boolean;
+
 	const onClickAuthorsHandler = () => {
-		setIsOpenedModalAuthors(true);
+		if (isActivatedSound) {
+			document.body.classList.add('noevents');
+			setTimeout(() => {
+				setIsOpenedModalAuthors(true);
+				document.body.classList.remove('noevents');
+			}, 1300)
+		} else {
+			setIsOpenedModalAuthors(true);
+		}
 	}
 
 	const onCloseAuthorsModalHandler = () => {
@@ -25,7 +41,15 @@ export const HomePage = () => {
 	}
 
 	const onClickAboutGameHandler = () => {
-		setIsOpenedModalAboutGame(true);
+		if (isActivatedSound) {
+			document.body.classList.add('noevents');
+			setTimeout(() => {
+				setIsOpenedModalAboutGame(true);
+				document.body.classList.remove('noevents');
+			}, 1300)
+		} else {
+			setIsOpenedModalAboutGame(true);
+		}
 	}
 
 	const onCloseAboutGameModalHandler = () => {
@@ -36,6 +60,15 @@ export const HomePage = () => {
 		navigate('/game');
 	}
 
+	useEffect(() => {
+		if (isActivatedSound) {
+			const audio = document.getElementById("ambient");
+			if (audio) {
+				(audio as HTMLAudioElement).volume = 0.04;
+			}
+		}
+	})
+
 	return (
 		<>
 			<div className={s.layout}>
@@ -44,13 +77,24 @@ export const HomePage = () => {
 						<img src={logo} alt="Логотип" className={s.logo} />
 						<ul className={s.menu}>
 							<li className={s.menu__item}>
-								<HatchButton onClick={onClickStartGameHandler}>Начать игру</HatchButton>
+								<HatchButton
+									onClick={onClickStartGameHandler}
+									hoverSound={isActivatedSound ? hoverSound : undefined}
+								>Начать игру</HatchButton>
 							</li>
 							<li className={s.menu__item}>
-								<HatchButton onClick={onClickAuthorsHandler}>Об авторах</HatchButton>
+								<HatchButton
+									onClick={onClickAuthorsHandler}
+									hoverSound={isActivatedSound ? hoverSound : undefined}
+									clickSound={isActivatedSound ? authorsSound : undefined}
+								>Об авторах</HatchButton>
 							</li>
 							<li className={s.menu__item}>
-								<HatchButton onClick={onClickAboutGameHandler}>Об игре</HatchButton>
+								<HatchButton
+									onClick={onClickAboutGameHandler}
+									hoverSound={isActivatedSound ? hoverSound : undefined}
+									clickSound={isActivatedSound ? rulesSound : undefined}
+								>Об игре</HatchButton>
 							</li>
 						</ul>
 					</div>
@@ -64,6 +108,12 @@ export const HomePage = () => {
 				isOpen={isOpenedModalAboutGame}
 				onClose={onCloseAboutGameModalHandler}
 			/>
+			<PlaySoundButton />
+			{isActivatedSound ? (
+				<audio autoPlay loop id="ambient">
+					<source src={ambientSound} type="audio/ogg"></source>
+				</audio>
+			) : undefined}
 		</>
 	)
 }

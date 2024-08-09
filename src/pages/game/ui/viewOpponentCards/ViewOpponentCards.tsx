@@ -3,7 +3,9 @@ import { ReactNode, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { TGameCard } from '@/entites/gameCards';
+import { TSoundSliceStore } from '@/entites/sound';
 import TShirtCard from '@/shared/assets/images/tshirt.png';
+import getCardSound from '@/shared/assets/sounds/get_card.ogg';
 
 import { GameStatuses } from '../../lib';
 import {
@@ -26,6 +28,7 @@ export const ViewOpponentCards = ({ leftRenderSlot, rightRenderSlot }: Props) =>
 	const opponentCards = useSelector<TDeskSliceStore>((state) => state.desk.opponentCards) as TGameCard[];
 	const unusedCards = useSelector<TDeskSliceStore>((state) => state.desk.unusedCards) as TGameCard[];
 	const gameStatus = useSelector<TDeskSliceStore>((state) => state.desk.status) as TGameStatus;
+	const isActivatedSound = useSelector<TSoundSliceStore>((state) => state.sound.isActivated) as boolean;
 
 	// Pseudo AI
 	useEffect(() => {
@@ -37,6 +40,10 @@ export const ViewOpponentCards = ({ leftRenderSlot, rightRenderSlot }: Props) =>
 			timer = setInterval(() => {
 				if (lackOfPoints >= 4 && unusedCardsAmount >= 25) {
 					dispatch(getCardOpponent());
+					if (isActivatedSound) {
+						const sound = new Audio(getCardSound);
+						sound.play();
+					}
 				} else {
 					dispatch(opponentStop());
 					clearInterval(timer);
@@ -48,7 +55,7 @@ export const ViewOpponentCards = ({ leftRenderSlot, rightRenderSlot }: Props) =>
 			clearInterval(timer)
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [opponentCards, unusedCards, gameStatus])
+	}, [opponentCards, unusedCards, gameStatus, isActivatedSound])
 
 	return (
 		<div className={s.board}>

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { IconButton } from '@/entites/IconButton';
+import { PlaySoundButton, TSoundSliceStore } from '@/entites/sound';
+import gameSound from '@/shared/assets/sounds/game.ogg';
 
 import { GameStatuses } from '../lib';
 import { startGame, TDeskSliceStore, TGameStatus } from '../model';
@@ -21,6 +23,7 @@ export const GamePage = () => {
 	const navigate = useNavigate();
 
 	const gameStatus = useSelector<TDeskSliceStore>((state) => state.desk.status) as TGameStatus;
+	const isActivatedSound = useSelector<TSoundSliceStore>((state) => state.sound.isActivated) as boolean;
 
 	const onGoBackHandler = () => {
 		navigate('/');
@@ -34,6 +37,15 @@ export const GamePage = () => {
 		dispatch(startGame());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
+
+	useEffect(() => {
+		if (isActivatedSound) {
+			const audio = document.getElementById("game");
+			if (audio) {
+				(audio as HTMLAudioElement).volume = 0.02;
+			}
+		}
+	})
 
 	return (
 		<>
@@ -54,6 +66,12 @@ export const GamePage = () => {
 				</div>
 			</div>
 			<EndGameModal />
+			<PlaySoundButton className={s.sound} />
+			{isActivatedSound && gameStatus !== GameStatuses.End ? (
+				<audio autoPlay loop id="game">
+					<source src={gameSound} type="audio/ogg"></source>
+				</audio>
+			) : undefined}
 		</>
 	)
 }

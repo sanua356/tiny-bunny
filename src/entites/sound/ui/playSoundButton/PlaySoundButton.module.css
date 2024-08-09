@@ -1,0 +1,25 @@
+.sound {
+	cursor: pointer;
+	position: absolute;
+	bottom: 3vh;
+	left: 3vh;
+	color: #fff;
+	background-color: transparent;
+	border: none;
+	max-width: 60px;
+	margin: 1rem;
+}
+.sound img {
+	max-width: 100%;
+	height: auto;
+	width: 100%;
+}
+@media screen and (max-width: 768px) {
+	.sound {
+		left: 0;
+		right: 0;
+		margin: auto;
+		max-width: 30px;
+		margin: 0;
+	}
+}

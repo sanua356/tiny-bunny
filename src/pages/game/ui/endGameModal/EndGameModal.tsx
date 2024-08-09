@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { HatchButton } from '@/entites/hatchButton';
+import { TSoundSliceStore } from '@/entites/sound';
+import endGameSound from '@/shared/assets/sounds/end_game.ogg';
 import { Modal } from '@/shared/ui/Modal';
 
 import { END_GAME_STATE, GameWinners } from '../../lib';
@@ -16,6 +18,7 @@ export const EndGameModal = () => {
 	const navigate = useNavigate();
 
 	const gameWinner = useSelector<TDeskSliceStore>((state) => state.desk.winner) as TWinnerGame;
+	const isActivatedSound = useSelector<TSoundSliceStore>((state) => state.sound.isActivated) as boolean;
 
 	const [isOpenedModal, setIsOpenedModal] = useState<boolean>(false);
 
@@ -60,8 +63,18 @@ export const EndGameModal = () => {
 					<h2 className={s.title}>{winnerData.title}</h2>
 					<span className={s.description}>{winnerData.description}</span>
 					<div className={s.buttons}>
-						<HatchButton onClick={onRefreshGameHandler}>Повторить игру</HatchButton>
-						<HatchButton onClick={onHomePageHandler}>На главную</HatchButton>
+						<HatchButton
+							onClick={onRefreshGameHandler}
+							hoverSound={isActivatedSound ? endGameSound : undefined}
+						>
+							Повторить игру
+						</HatchButton>
+						<HatchButton
+							onClick={onHomePageHandler}
+							hoverSound={isActivatedSound ? endGameSound : undefined}
+						>
+							На главную
+						</HatchButton>
 					</div>
 				</div>
 				<div className={s.images}>
