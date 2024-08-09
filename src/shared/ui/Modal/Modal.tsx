@@ -8,9 +8,10 @@ type Props = {
 	isOpen: boolean;
 	onClose?: () => void;
 	children: ReactNode;
+	noFade?: boolean;
 }
 
-export const Modal = ({ isOpen, onClose, children }: Props) => {
+export const Modal = ({ isOpen, onClose, children, noFade }: Props) => {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -18,14 +19,18 @@ export const Modal = ({ isOpen, onClose, children }: Props) => {
 		if (isOpen) {
 			setIsOpened(true);
 		} else {
-			timer = setTimeout(() => {
+			if (!noFade) {
+				timer = setTimeout(() => {
+					setIsOpened(false);
+				}, 800)
+			} else {
 				setIsOpened(false);
-			}, 800)
+			}
 		}
 		return () => {
 			clearTimeout(timer);
 		}
-	}, [isOpen])
+	}, [isOpen, noFade])
 
 	const onClickModal = (event: MouseEvent) => {
 		if ((event.target as HTMLElement).classList.contains(s.modal)) {

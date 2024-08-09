@@ -52,6 +52,7 @@ export const EndGameModal = () => {
 		<Modal
 			isOpen={isOpenedModal}
 			onClose={onCloseHandler}
+			noFade
 		>
 			<div className={s.winner}>
 				<div className={s.info}>
