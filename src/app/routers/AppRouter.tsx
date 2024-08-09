@@ -1,12 +1,12 @@
 import {
-	createBrowserRouter,
+	createHashRouter,
 	RouterProvider
 } from "react-router-dom";
 
 import { GamePage } from "@/pages/game";
 import { HomePage } from "@/pages/home";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: "/",
 		element: <HomePage />,
