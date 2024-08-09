@@ -3,6 +3,8 @@
 ## About
 Mini-game "21 points" in the universe of the visual novel "Tiny Bunny". Developed entirely on the web stack using the methodology - Feature Sliced Sesign.
 
+Play this: https://sanua356.github.io/tiny-bunny/
+
 ## Technology Stack
 - React
 - Redux Toolkit
