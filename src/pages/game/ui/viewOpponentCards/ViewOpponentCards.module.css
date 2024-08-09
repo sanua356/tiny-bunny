@@ -98,6 +98,6 @@
 }
 @media screen and (max-width: 768px) {
 	.board {
-		max-width: 70vw;
+		max-width: 85vw;
 	}
 }
