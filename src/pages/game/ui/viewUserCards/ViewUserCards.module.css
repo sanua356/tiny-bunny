@@ -1,0 +1,71 @@
+.board {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 15px;
+	width: 100%;
+	max-width: 35vw;
+	min-height: 20vh;
+}
+.cards {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 15px;
+	width: 100%;
+}
+.card {
+	max-width: 17%;
+	height: auto;
+	width: 100%;
+	border-radius: 10px;
+	border: 5px solid #f0f0f0;
+	animation-name: getCard;
+	animation-duration: 500ms;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-delay: 0ms;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+}
+@keyframes getCard {
+	from {
+		transform: translateY(100%);
+		width: 0;
+	}
+	to {
+		transform: translateY(0);
+		width: 100%;
+	}
+}
+@media screen and (max-width: 1500px) {
+	.card {
+		max-width: 100%;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}
+@media screen and (max-width: 1100px) {
+	.card {
+		max-width: 35%;
+	}
+	.board {
+		max-width: 50vw;
+	}
+	.cards {
+		max-height: 35vh;
+	}
+	.card {
+		max-width: 100%;
+	}
+}
+@media screen and (max-width: 768px) {
+	.board {
+		max-width: 70vw;
+	}
+}

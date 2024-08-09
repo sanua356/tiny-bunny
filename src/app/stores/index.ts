@@ -1,0 +1,2 @@
+export { mainStore } from './mainStore';
+

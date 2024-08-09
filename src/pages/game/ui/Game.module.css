@@ -1,0 +1,52 @@
+.layout {
+	width: 100%;
+	min-height: 100dvh;
+	overflow: hidden;
+	background-image: url('@/shared/assets/images/fon.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.goback {
+	position: absolute;
+	top: 3vh;
+	left: 3vh;
+}
+.refresh {
+	position: absolute;
+	top: 3vh;
+	right: 3vh;
+}
+.cards {
+	height: 100%;
+	min-height: 100dvh;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+.player {
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	justify-content: center;
+}
+@media screen and (max-width: 768px) {
+	.player {
+		flex-direction: column;
+	}
+	.goback,
+	.refresh {
+		transform: scale(0.5);
+		top: -10px;
+	}
+	.goback {
+		left: -10px;
+	}
+	.refresh {
+		right: -10px;
+	}
+}

@@ -1,0 +1,1 @@
+export { AuthorsModal } from './AuthorsModal';

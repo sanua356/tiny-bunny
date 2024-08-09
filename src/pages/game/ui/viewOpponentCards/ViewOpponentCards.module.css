@@ -1,0 +1,103 @@
+.board {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 15px;
+	width: 100%;
+	max-width: 35vw;
+	min-height: 20vh;
+}
+.cards {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 15px;
+	width: 100%;
+}
+.layout {
+	max-width: 17%;
+	height: auto;
+	width: 100%;
+	animation-name: getCard;
+	animation-duration: 500ms;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-delay: 0ms;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	transform-origin: top center;
+}
+.card {
+	max-width: 100%;
+	height: 100%;
+	width: 100%;
+	border-radius: 10px;
+	border: 5px solid #f0f0f0;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+@keyframes getCard {
+	from {
+		width: 0;
+		transform: translateY(-100%);
+	}
+	to {
+		transform: translateY(0);
+		width: 100%;
+	}
+}
+.flip {
+	max-width: 100%;
+	height: 100%;
+	width: 100%;
+	perspective: 1000px;
+}
+.flip__inner {
+	max-width: 100%;
+	height: 100%;
+	width: 100%;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+}
+.card__back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transform: rotateY(180deg);
+}
+.flip.opened .flip__inner {
+	transform: rotateY(180deg);
+}
+@media screen and (max-width: 1500px) {
+	.layout {
+		max-width: 100%;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}
+@media screen and (max-width: 1100px) {
+	.layout {
+		max-width: 35%;
+	}
+	.board {
+		max-width: 50vw;
+	}
+	.cards {
+		max-height: 35vh;
+	}
+	.layout {
+		max-width: 100%;
+	}
+}
+@media screen and (max-width: 768px) {
+	.board {
+		max-width: 70vw;
+	}
+}

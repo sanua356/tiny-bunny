@@ -1,0 +1,22 @@
+.button {
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	width: fit-content;
+	padding: 1rem;
+	position: relative;
+	z-index: 1;
+}
+.button:hover::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-image: url('@/shared/assets/images/interactive_button.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+}

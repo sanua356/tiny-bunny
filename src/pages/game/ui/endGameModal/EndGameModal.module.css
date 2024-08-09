@@ -1,0 +1,133 @@
+.winner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50vw;
+	height: auto;
+	background-image: url('@/shared/assets/images/end.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	border-radius: 20px;
+	z-index: 2;
+	aspect-ratio: 3 / 1;
+	animation-name: fade;
+	animation-duration: 500ms;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-delay: 0ms;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+}
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@media screen and (max-width: 1500px) {
+	.winner {
+		width: 70vw;
+	}
+}
+@media screen and (max-width: 1100px) {
+	.winner {
+		width: 80vw;
+	}
+}
+.info {
+	display: flex;
+	flex-direction: column;
+	padding: 30px 0;
+	margin-left: 80px;
+	margin-right: 10px;
+}
+.subtitle {
+	color: gray;
+	font-size: 1.5rem;
+}
+.title {
+	margin-top: 25px;
+	font-size: 4rem;
+	color: #fff;
+	letter-spacing: 3px;
+	text-shadow: 0 0 10px #000;
+}
+.description {
+	margin-top: 20px;
+	display: block;
+	color: #fff;
+	font-size: 1.5rem;
+	text-shadow: 0 0 10px #000;
+	opacity: 0.7;
+	letter-spacing: 2px;
+}
+.buttons {
+	margin-top: 40px;
+	display: flex;
+	gap: 40px;
+}
+.buttons button {
+	font-size: 2rem;
+	padding: 0;
+}
+.buttons button:hover::before {
+	transform: scale(1.2);
+}
+.images {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+@media screen and (max-width: 992px) {
+	.winner {
+		aspect-ratio: auto;
+		grid-template-columns: 1fr;
+	}
+	.images {
+		display: none;
+	}
+	.info {
+		margin: 0;
+		padding: 30px;
+		text-align: center;
+	}
+	.buttons {
+		justify-content: center;
+		align-items: center;
+	}
+}
+@media screen and (max-width: 576px) {
+	.title {
+		font-size: 3rem;
+	}
+	.description {
+		font-size: 1.3rem;
+	}
+	.buttons button {
+		font-size: 1.5rem;
+	}
+}
+.image {
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	position: relative;
+	z-index: 2;
+	border-radius: 20px;
+}
+.image_template {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	filter: blur(30px);
+	z-index: -1;
+}

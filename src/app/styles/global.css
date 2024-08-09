@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Zaychik';
+}
+body {
+	cursor: url('@/shared/assets/images/cursor.png'), pointer;
+}
+.Toastify__toast-container {
+	width: 20vw;
+}
+.Toastify__toast {
+	background-color: transparent;
+	background-image: url('@/shared/assets/images/panel.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-family: 'Zaychik';
+	letter-spacing: 1px;
+	font-size: 1.3rem;
+	border-radius: 20px;
+}
+.Toastify__progress-bar {
+	background-color: gray;
+}
+.Toastify__progress-bar--bg {
+	background-color: black;
+}
+@media screen and (max-width: 1100px) {
+	.Toastify__toast-container {
+		width: 50vw;
+	}
+}
+@media screen and (max-width: 768px) {
+	.Toastify__toast-container {
+		width: 60vw;
+	}
+}
+@media screen and (max-width: 480px) {
+	.Toastify__toast-container {
+		width: 100vw;
+	}
+}
