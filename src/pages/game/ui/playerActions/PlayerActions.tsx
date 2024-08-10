@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import { TGameCard } from '@/entites/gameCards';
 import { HatchButton } from '@/entites/hatchButton';
-import { TSettingsSliceStore } from '@/entites/settings';
+import { TSettingsSliceStore, useTranslates } from '@/entites/settings';
 import getCardSound from '@/shared/assets/sounds/get_card.ogg';
 import hoverSound from '@/shared/assets/sounds/hover.ogg';
 import nextStepSound from '@/shared/assets/sounds/next_step.ogg';
@@ -22,6 +22,8 @@ import s from './PlayerActions.module.css';
 
 export const PlayerActions = () => {
 	const dispatch = useDispatch();
+
+	const { t } = useTranslates();
 
 	const gameStatus = useSelector<TDeskSliceStore>((state) => state.desk.status) as TGameStatus;
 	const unusedCards = useSelector<TDeskSliceStore>((state) => state.desk.unusedCards) as TGameCard[];
@@ -52,7 +54,7 @@ export const PlayerActions = () => {
 	const onGetCardHandler = () => {
 		const playerCardsAmount = playerCards.reduce((acc, card) => acc + card.value, 0);
 		if (playerCardsAmount >= 21) {
-			toast("У Вас равно или более 21 очка. Больше карт взять нельзя. Передайте ход оппоненту.");
+			toast(t('moreTventyOne'));
 			return;
 		}
 		dispatch(getCard());
@@ -72,7 +74,7 @@ export const PlayerActions = () => {
 				clickSound={isActivatedSound ? nextStepSound : undefined}
 				hoverSound={isActivatedSound ? hoverSound : undefined}
 			>
-				Передать ход
+				{t('nextStepButton')}
 			</HatchButton>
 			<HatchButton
 				className={s.button}
@@ -81,7 +83,7 @@ export const PlayerActions = () => {
 				clickSound={isActivatedSound ? getCardSound : undefined}
 				hoverSound={isActivatedSound ? hoverSound : undefined}
 			>
-				Взять карту
+				{t('getCardButton')}
 			</HatchButton>
 			<HatchButton
 				className={s.button}
@@ -90,7 +92,7 @@ export const PlayerActions = () => {
 				clickSound={isActivatedSound ? viewCardsSound : undefined}
 				hoverSound={isActivatedSound ? hoverSound : undefined}
 			>
-				Вскрыть карты
+				{t('endGameButton')}
 			</HatchButton>
 		</div>
 	)

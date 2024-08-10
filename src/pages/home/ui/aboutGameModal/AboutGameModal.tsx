@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import { useTranslates } from '@/entites/settings';
 import aboutGameImage from '@/shared/assets/images/rules.png';
 import { Modal } from '@/shared/ui';
 
@@ -11,6 +12,8 @@ type Props = {
 }
 
 export const AboutGameModal = ({ isOpen, onClose }: Props) => {
+	const { t } = useTranslates();
+
 	return (
 		<Modal
 			isOpen={isOpen}
@@ -18,18 +21,11 @@ export const AboutGameModal = ({ isOpen, onClose }: Props) => {
 		>
 			<div className={s.authors}>
 				<div className={s.info}>
-					<span className={s.subtitle}>ПРАВИЛА ИГРЫ</span>
-					<h2 className={s.title}>ОБ ИГРЕ</h2>
-					<p className={s.description}>Это классическая карточная игра "21 очко".
-						В колоде имеется 11 карт номиналом от 2 до 11. Игроку необходимо набрать больше очков, чем
-						у оппонента, но не более 21.
-					</p>
-					<p className={s.description}>Если игрок или игрок и оппонент набрали более 21 очка, они автоматически
-						считаются проигравшими.
-					</p>
-					<p className={s.description}>Если и игрок и оппонент набрали более 21 очка, либо они оба
-						набрали одинаковое количество очков, игра заканчивается ничьей.
-					</p>
+					<span className={s.subtitle}>{t('rulesSubtitle')}</span>
+					<h2 className={s.title}>{t('rulesTitle')}</h2>
+					<p className={s.description}>{t('rulesDescription1')}</p>
+					<p className={s.description}>{t('rulesDescription2')}</p>
+					<p className={s.description}>{t('rulesDescription3')}</p>
 				</div>
 				<div className={s.images}>
 					<img src={aboutGameImage} alt="Об игре" className={clsx(s.image, s.image_template)} />

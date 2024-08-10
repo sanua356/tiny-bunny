@@ -1,0 +1,22 @@
+.language {
+	cursor: pointer;
+	position: absolute;
+	bottom: 3vh;
+	left: 12vh;
+	color: #fff;
+	background-color: transparent;
+	border: none;
+	font-size: 3.2rem;
+	margin: 1rem;
+	width: fit-content;
+}
+@media screen and (max-width: 768px) {
+	.language {
+		left: 0;
+		right: 0;
+		margin: auto;
+		bottom: 3.5vh;
+		transform: translateX(50px);
+		font-size: 1.5rem;
+	}
+}

@@ -3,8 +3,9 @@ import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { HatchButton } from "@/entites/hatchButton"
-import { PlaySoundButton, TSettingsSliceStore } from "@/entites/settings"
+import { PlaySoundButton, TSettingsSliceStore, useTranslates } from "@/entites/settings"
 import logo from '@/shared/assets/images/logo.png'
+import logoEn from '@/shared/assets/images/logo_en.png'
 import authorsSound from '@/shared/assets/sounds/authors.ogg'
 import hoverSound from '@/shared/assets/sounds/hover.ogg'
 import ambientSound from '@/shared/assets/sounds/menu.ogg'
@@ -14,10 +15,13 @@ import { AboutGameModal } from "./aboutGameModal"
 import { AuthorsModal } from "./authorsModal"
 
 import s from './Home.module.css'
+import { ChangeLanguageButton } from "./changeLanguageButton"
 
 
 export const HomePage = () => {
 	const navigate = useNavigate();
+
+	const { currentLanguage, t } = useTranslates();
 
 	const [isOpenedModalAuthors, setIsOpenedModalAuthors] = useState<boolean>(false);
 	const [isOpenedModalAboutGame, setIsOpenedModalAboutGame] = useState<boolean>(false);
@@ -74,27 +78,27 @@ export const HomePage = () => {
 			<div className={s.layout}>
 				<div className={s.container}>
 					<div className={s.content}>
-						<img src={logo} alt="Логотип" className={s.logo} />
+						<img src={currentLanguage === 'ru-RU' ? logo : logoEn} alt="Логотип" className={s.logo} />
 						<ul className={s.menu}>
 							<li className={s.menu__item}>
 								<HatchButton
 									onClick={onClickStartGameHandler}
 									hoverSound={isActivatedSound ? hoverSound : undefined}
-								>Начать игру</HatchButton>
+								>{t('startGame')}</HatchButton>
 							</li>
 							<li className={s.menu__item}>
 								<HatchButton
 									onClick={onClickAuthorsHandler}
 									hoverSound={isActivatedSound ? hoverSound : undefined}
 									clickSound={isActivatedSound ? authorsSound : undefined}
-								>Об авторах</HatchButton>
+								>{t('authors')}</HatchButton>
 							</li>
 							<li className={s.menu__item}>
 								<HatchButton
 									onClick={onClickAboutGameHandler}
 									hoverSound={isActivatedSound ? hoverSound : undefined}
 									clickSound={isActivatedSound ? rulesSound : undefined}
-								>Об игре</HatchButton>
+								>{t('rules')}</HatchButton>
 							</li>
 						</ul>
 					</div>
@@ -109,6 +113,7 @@ export const HomePage = () => {
 				onClose={onCloseAboutGameModalHandler}
 			/>
 			<PlaySoundButton />
+			<ChangeLanguageButton />
 			{isActivatedSound ? (
 				<audio autoPlay loop id="ambient">
 					<source src={ambientSound} type="audio/ogg"></source>

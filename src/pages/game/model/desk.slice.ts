@@ -6,9 +6,9 @@ import { GameStatuses, GameWinners, shuffleArray } from '../lib';
 import { TGameStatus, TWinnerGame } from './types';
 
 export const GAME_STEP_TRANSLATE = {
-	[GameStatuses.StepPlayer]: 'Ход игрока',
-	[GameStatuses.StepOpponent]: 'Ход оппонента',
-	[GameStatuses.End]: 'Показ результатов',
+	[GameStatuses.StepPlayer]: 'playerStep',
+	[GameStatuses.StepOpponent]: 'opponentStep',
+	[GameStatuses.End]: 'endGameStep',
 }
 
 export type TDeskSliceState = {

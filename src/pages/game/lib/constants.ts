@@ -37,26 +37,26 @@ export enum GameWinners {
 
 export const END_GAME_STATE = {
 	[GameWinners.Player]: {
-		title: 'Победа!',
-		description: 'Вы обыграли хозяниа леса! Хотите повторить игру?',
+		title: 'playerWinnerTitle',
+		description: 'playerWinnerDescription',
 		images: [win1, win2, win3, win4],
 		sounds: [win1sound, win2sound, win3sound, win4sound, win5sound],
 	},
 	[GameWinners.Opponent]: {
-		title: 'Поражение',
-		description: 'Хозяин леса обыграл Вас! Хотите повторить игру?',
+		title: 'opponentWinnerTitle',
+		description: 'opponentWinnerDescription',
 		images: [lose1, lose2, lose3, lose4],
 		sounds: [lose1sound, lose2sound, lose3sound, lose4sound, lose5sound, lose6sound],
 	},
 	[GameWinners.Draw]: {
-		title: 'Ничья',
-		description: 'В данной партии нет победителя! Хотите повторить игру?',
+		title: 'drawWinnerTitle',
+		description: 'drawWinnerDescription',
 		images: [draw1],
 		sounds: [draw1sound, draw2sound, draw3sound],
 	},
 	[GameWinners.Nobody]: {
-		title: '',
-		description: '',
+		title: 'emptyTranslate',
+		description: 'emptyTranslate',
 		images: [],
 		sounds: [],
 	}
