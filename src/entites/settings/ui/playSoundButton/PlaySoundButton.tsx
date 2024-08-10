@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setActivateSound, TSoundSliceStore } from '@/entites/sound';
+import { setActivateSound, TSettingsSliceStore } from '@/entites/settings';
 import mutedImage from '@/shared/assets/images/muted.png';
 import soundImage from '@/shared/assets/images/sound.png';
 
@@ -14,7 +14,7 @@ type Props = {
 export const PlaySoundButton = ({ className }: Props) => {
 	const dispatch = useDispatch();
 
-	const isActivatedSound = useSelector<TSoundSliceStore>((state) => state.sound.isActivated) as boolean;
+	const isActivatedSound = useSelector<TSettingsSliceStore>((state) => state.sound.isActivatedSound) as boolean;
 
 	const onToggleSoundStatusHandler = () => {
 		dispatch(setActivateSound(!isActivatedSound));

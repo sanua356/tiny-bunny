@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { HatchButton } from "@/entites/hatchButton"
-import { PlaySoundButton, TSoundSliceStore } from "@/entites/sound"
+import { PlaySoundButton, TSettingsSliceStore } from "@/entites/settings"
 import logo from '@/shared/assets/images/logo.png'
 import authorsSound from '@/shared/assets/sounds/authors.ogg'
 import hoverSound from '@/shared/assets/sounds/hover.ogg'
@@ -22,7 +22,7 @@ export const HomePage = () => {
 	const [isOpenedModalAuthors, setIsOpenedModalAuthors] = useState<boolean>(false);
 	const [isOpenedModalAboutGame, setIsOpenedModalAboutGame] = useState<boolean>(false);
 
-	const isActivatedSound = useSelector<TSoundSliceStore>((state) => state.sound.isActivated) as boolean;
+	const isActivatedSound = useSelector<TSettingsSliceStore>((state) => state.sound.isActivatedSound) as boolean;
 
 	const onClickAuthorsHandler = () => {
 		if (isActivatedSound) {

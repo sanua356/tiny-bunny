@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import { TGameCard } from '@/entites/gameCards';
 import { HatchButton } from '@/entites/hatchButton';
-import { TSoundSliceStore } from '@/entites/sound';
+import { TSettingsSliceStore } from '@/entites/settings';
 import getCardSound from '@/shared/assets/sounds/get_card.ogg';
 import hoverSound from '@/shared/assets/sounds/hover.ogg';
 import nextStepSound from '@/shared/assets/sounds/next_step.ogg';
@@ -27,7 +27,7 @@ export const PlayerActions = () => {
 	const unusedCards = useSelector<TDeskSliceStore>((state) => state.desk.unusedCards) as TGameCard[];
 	const playerCards = useSelector<TDeskSliceStore>((state) => state.desk.playerCards) as TGameCard[];
 	const opponentCards = useSelector<TDeskSliceStore>((state) => state.desk.opponentCards) as TGameCard[];
-	const isActivatedSound = useSelector<TSoundSliceStore>((state) => state.sound.isActivated) as boolean;
+	const isActivatedSound = useSelector<TSettingsSliceStore>((state) => state.sound.isActivatedSound) as boolean;
 
 	const nextStepButtonDisabled = (
 		gameStatus !== GameStatuses.StepPlayer ||

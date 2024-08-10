@@ -3,7 +3,7 @@ import { ReactNode, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { TGameCard } from '@/entites/gameCards';
-import { TSoundSliceStore } from '@/entites/sound';
+import { TSettingsSliceStore } from '@/entites/settings';
 import TShirtCard from '@/shared/assets/images/tshirt.png';
 import getCardSound from '@/shared/assets/sounds/get_card.ogg';
 
@@ -28,7 +28,7 @@ export const ViewOpponentCards = ({ leftRenderSlot, rightRenderSlot }: Props) =>
 	const opponentCards = useSelector<TDeskSliceStore>((state) => state.desk.opponentCards) as TGameCard[];
 	const unusedCards = useSelector<TDeskSliceStore>((state) => state.desk.unusedCards) as TGameCard[];
 	const gameStatus = useSelector<TDeskSliceStore>((state) => state.desk.status) as TGameStatus;
-	const isActivatedSound = useSelector<TSoundSliceStore>((state) => state.sound.isActivated) as boolean;
+	const isActivatedSound = useSelector<TSettingsSliceStore>((state) => state.sound.isActivatedSound) as boolean;
 
 	// Pseudo AI
 	useEffect(() => {

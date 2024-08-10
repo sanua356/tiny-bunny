@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { HatchButton } from '@/entites/hatchButton';
-import { TSoundSliceStore } from '@/entites/sound';
+import { TSettingsSliceStore } from '@/entites/settings';
 import endGameSound from '@/shared/assets/sounds/end_game.ogg';
 import { Modal } from '@/shared/ui/Modal';
 
@@ -18,12 +18,13 @@ export const EndGameModal = () => {
 	const navigate = useNavigate();
 
 	const gameWinner = useSelector<TDeskSliceStore>((state) => state.desk.winner) as TWinnerGame;
-	const isActivatedSound = useSelector<TSoundSliceStore>((state) => state.sound.isActivated) as boolean;
+	const isActivatedSound = useSelector<TSettingsSliceStore>((state) => state.sound.isActivatedSound) as boolean;
 
 	const [isOpenedModal, setIsOpenedModal] = useState<boolean>(false);
 
 	const winnerData = END_GAME_STATE[gameWinner];
 	const randomImage = winnerData.images[Math.floor(Math.random() * winnerData.images.length)]
+	const randomSound = winnerData.sounds[Math.floor(Math.random() * winnerData.sounds.length)]
 
 	const onCloseHandler = () => {
 		dispatch(setGameWinner(GameWinners.Nobody));
@@ -44,12 +45,18 @@ export const EndGameModal = () => {
 		if (gameWinner !== GameWinners.Nobody) {
 			timer = setTimeout(() => {
 				setIsOpenedModal(true);
+				if (isActivatedSound) {
+					const sound = new Audio(randomSound);
+					sound.volume = 0.5;
+					sound.play();
+				}
 			}, 2000)
 		}
 		return () => {
 			clearTimeout(timer);
 		}
-	}, [gameWinner])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [gameWinner, isActivatedSound])
 
 	return (
 		<Modal
