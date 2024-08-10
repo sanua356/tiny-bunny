@@ -96,6 +96,8 @@
 	.authors {
 		aspect-ratio: auto;
 		grid-template-columns: 1fr;
+		max-height: 80vh;
+		overflow-y: auto;
 	}
 	.images {
 		display: none;
@@ -111,6 +113,9 @@
 	}
 }
 @media screen and (max-width: 576px) {
+	.info {
+		word-break: break-all;
+	}
 	.title {
 		font-size: 3rem;
 	}
