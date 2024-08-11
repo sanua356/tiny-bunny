@@ -2,14 +2,14 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { HatchButton } from "@/entites/hatchButton"
-import { PlaySoundButton, TSettingsSliceStore, useTranslates } from "@/entites/settings"
-import logo from '@/shared/assets/images/logo.png'
-import logoEn from '@/shared/assets/images/logo_en.png'
-import authorsSound from '@/shared/assets/sounds/authors.ogg'
-import hoverSound from '@/shared/assets/sounds/hover.ogg'
-import ambientSound from '@/shared/assets/sounds/menu.ogg'
-import rulesSound from '@/shared/assets/sounds/rules.ogg'
+import { HatchButton } from "entities/hatchButtons"
+import { PlaySoundButton, TSettingsSliceStore, useTranslates } from "entities/settings"
+import logo from 'shared/assets/images/logo.png'
+import logoEn from 'shared/assets/images/logo_en.png'
+import authorsSound from 'shared/assets/sounds/authors.ogg'
+import hoverSound from 'shared/assets/sounds/hover.ogg'
+import ambientSound from 'shared/assets/sounds/menu.ogg'
+import rulesSound from 'shared/assets/sounds/rules.ogg'
 
 import { AboutGameModal } from "./aboutGameModal"
 import { AuthorsModal } from "./authorsModal"

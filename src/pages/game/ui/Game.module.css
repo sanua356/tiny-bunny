@@ -2,7 +2,7 @@
 	width: 100%;
 	min-height: 100dvh;
 	overflow: hidden;
-	background-image: url('@/shared/assets/images/fon.png');
+	background-image: url('shared/assets/images/fon.png');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;

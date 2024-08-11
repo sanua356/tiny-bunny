@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
-import { TGameCard } from '@/entites/gameCards';
-import { useTranslates } from '@/entites/settings';
+import { TGameCard } from 'entities/gameCards';
+import { useTranslates } from 'entities/settings';
 
 import { TDeskSliceStore } from '../../model';
 import s from './ViewOpponentCardAmount.module.css';

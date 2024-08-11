@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeCurrentLangugage, TAvailableLanguages, TSettingsSliceStore } from '@/entites/settings';
+import { changeCurrentLangugage, TAvailableLanguages, TSettingsSliceStore } from 'entities/settings';
 
 import s from './ChangeLanguageButton.module.css';
 

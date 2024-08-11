@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { settingsReducer } from "@/entites/settings";
-import { deskReducer } from "@/pages/game";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+
+import { settingsReducer } from "entities/settings";
+import { deskReducer } from "pages/game";
 
 const mainReducer = combineReducers({
 	"desk": deskReducer as any,

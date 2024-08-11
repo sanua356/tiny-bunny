@@ -19,11 +19,14 @@
 
 		/* Linting */
 		"strict": true,
+		"baseUrl": "src",
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"paths": {
-			"@/*": ["./src/*"]
+			"entities/*": ["entities/*"],
+			"pages/*": ["pages/*"],
+			"shared/*": ["shared/*"]
 		}
 	},
 	"include": ["src"]

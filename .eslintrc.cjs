@@ -22,6 +22,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'import/order': ['off']
+    'import/order': ['off'],
+    'import/no-internal-modules': ['off'],
   },
 }

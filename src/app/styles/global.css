@@ -5,7 +5,7 @@
 	font-family: 'Zaychik';
 }
 body {
-	cursor: url('@/shared/assets/images/cursor.png'), pointer;
+	cursor: url('shared/assets/images/cursor.png'), pointer;
 }
 .noevents {
 	pointer-events: none;
@@ -15,7 +15,7 @@ body {
 }
 .Toastify__toast {
 	background-color: transparent;
-	background-image: url('@/shared/assets/images/panel.png');
+	background-image: url('shared/assets/images/panel.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;

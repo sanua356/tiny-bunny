@@ -1,7 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 
-import '@/shared/fonts/zaychik/Zaychik.css';
 import 'react-toastify/dist/ReactToastify.css';
+import 'shared/fonts/zaychik/Zaychik.css';
 
 import { MainProviders } from "./providers";
 import { AppRouter } from "./routers";

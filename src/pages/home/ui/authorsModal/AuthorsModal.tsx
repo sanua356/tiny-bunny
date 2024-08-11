@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 
-import { useTranslates } from '@/entites/settings';
-import authorsImage from '@/shared/assets/images/authors.png';
-import { Modal } from '@/shared/ui';
+import { useTranslates } from 'entities/settings';
+import authorsImage from 'shared/assets/images/authors.png';
+import { Modal } from 'shared/ui';
 
 import s from './AuthorsModal.module.css';
 

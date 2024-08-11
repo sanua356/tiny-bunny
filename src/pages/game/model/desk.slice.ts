@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { GAME_CARDS, TGameCard } from '@/entites/gameCards';
-
-import { GameStatuses, GameWinners, shuffleArray } from '../lib';
+import { GAME_CARDS, GameStatuses, GameWinners, shuffleArray, TGameCard } from '../lib';
 import { TGameStatus, TWinnerGame } from './types';
 
 export const GAME_STEP_TRANSLATE = {

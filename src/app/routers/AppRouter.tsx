@@ -3,8 +3,8 @@ import {
 	RouterProvider
 } from "react-router-dom";
 
-import { GamePage } from "@/pages/game";
-import { HomePage } from "@/pages/home";
+import { GamePage } from "pages/game";
+import { HomePage } from "pages/home";
 
 const router = createHashRouter([
 	{

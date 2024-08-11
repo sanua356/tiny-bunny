@@ -7,5 +7,13 @@
 		{
 			"path": "./tsconfig.node.json"
 		}
-	]
+	],
+	"compilerOptions": {
+		"baseUrl": "src",
+		"paths": {
+			"entities/*": ["entities/*"],
+			"pages/*": ["pages/*"],
+			"shared/*": ["shared/*"]
+		}
+	}
 }

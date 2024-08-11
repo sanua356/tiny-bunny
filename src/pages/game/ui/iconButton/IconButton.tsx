@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
-import backIcon from '@/shared/assets/images/back.png';
-import refreshIcon from '@/shared/assets/images/refresh.png';
+import backIcon from 'shared/assets/images/back.png';
+import refreshIcon from 'shared/assets/images/refresh.png';
 
 import s from './IconButton.module.css';
 

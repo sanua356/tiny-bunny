@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { IconButton } from '@/entites/IconButton';
-import { PlaySoundButton, TSettingsSliceStore } from '@/entites/settings';
-import gameSound from '@/shared/assets/sounds/game.ogg';
+import { PlaySoundButton, TSettingsSliceStore } from 'entities/settings';
+import gameSound from 'shared/assets/sounds/game.ogg';
 
 import { GameStatuses } from '../lib';
 import { startGame, TDeskSliceStore, TGameStatus } from '../model';
 import { EndGameModal } from './endGameModal';
+import { IconButton } from './iconButton';
 import { PlayerActions } from './playerActions';
 import { ViewOpponentCardAmount } from './viewOpponentCardAmount';
 import { ViewOpponentCards } from './viewOpponentCards';

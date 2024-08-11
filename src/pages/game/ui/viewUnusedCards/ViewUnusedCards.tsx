@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 
-import { TGameCard } from '@/entites/gameCards';
-import { useTranslates } from '@/entites/settings';
-import TShirtCard from '@/shared/assets/images/tshirt_h.png';
-import useDebounce from '@/shared/lib/useDebounce';
+import { useTranslates } from 'entities/settings';
+import TShirtCard from 'shared/assets/images/tshirt_h.png';
+import { useDebounce } from 'shared/lib';
 
+import { TGameCard } from '../../lib';
 import { GAME_STEP_TRANSLATE, TDeskSliceStore, TGameStatus } from '../../model';
 
 import s from './ViewUnusedCards.module.css';

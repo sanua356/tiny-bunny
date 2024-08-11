@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 
-import { TGameCard } from '@/entites/gameCards';
-
+import { TGameCard } from '../../lib';
 import { TDeskSliceStore } from '../../model';
+
 import s from './ViewUserCards.module.css';
 
 type Props = {

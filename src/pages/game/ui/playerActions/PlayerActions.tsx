@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { TGameCard } from '@/entites/gameCards';
-import { HatchButton } from '@/entites/hatchButton';
-import { TSettingsSliceStore, useTranslates } from '@/entites/settings';
-import getCardSound from '@/shared/assets/sounds/get_card.ogg';
-import hoverSound from '@/shared/assets/sounds/hover.ogg';
-import nextStepSound from '@/shared/assets/sounds/next_step.ogg';
-import viewCardsSound from '@/shared/assets/sounds/view_cards.ogg';
+import { TGameCard } from 'entities/gameCards';
+import { HatchButton } from 'entities/hatchButtons';
+import { TSettingsSliceStore, useTranslates } from 'entities/settings';
+import getCardSound from 'shared/assets/sounds/get_card.ogg';
+import hoverSound from 'shared/assets/sounds/hover.ogg';
+import nextStepSound from 'shared/assets/sounds/next_step.ogg';
+import viewCardsSound from 'shared/assets/sounds/view_cards.ogg';
 
 import { GameStatuses } from '../../lib';
 import {

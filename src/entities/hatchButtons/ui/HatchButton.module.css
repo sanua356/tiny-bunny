@@ -28,7 +28,7 @@
 	left: -10%;
 	width: 140%;
 	height: 140%;
-	background-image: url('@/shared/assets/images/plashka.png');
+	background-image: url('shared/assets/images/plashka.png');
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;

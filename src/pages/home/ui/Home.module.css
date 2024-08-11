@@ -4,7 +4,7 @@
 	min-height: 100dvh;
 	display: flex;
 	align-items: center;
-	background-image: url('@/shared/assets/images/home_background.jpeg');
+	background-image: url('shared/assets/images/home_background.jpeg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

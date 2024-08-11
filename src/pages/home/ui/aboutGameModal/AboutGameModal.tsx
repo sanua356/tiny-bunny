@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 
-import { useTranslates } from '@/entites/settings';
-import aboutGameImage from '@/shared/assets/images/rules.png';
-import { Modal } from '@/shared/ui';
+import { useTranslates } from 'entities/settings';
+import aboutGameImage from 'shared/assets/images/rules.png';
+import { Modal } from 'shared/ui';
 
 import s from './AboutGameModal.module.css';
 
