@@ -2,12 +2,11 @@ import clsx from 'clsx';
 import { ReactNode, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { TGameCard } from 'entities/gameCards';
 import { TSettingsSliceStore } from 'entities/settings';
 import TShirtCard from 'shared/assets/images/tshirt.png';
 import getCardSound from 'shared/assets/sounds/get_card.ogg';
 
-import { GameStatuses } from '../../lib';
+import { GameStatuses, TGameCard } from '../../lib';
 import {
 	getCardOpponent,
 	opponentStop,
