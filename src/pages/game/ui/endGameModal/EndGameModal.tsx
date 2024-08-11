@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { HatchButton } from 'entities/hatchButtons';
 import { TSettingsSliceStore, useTranslates } from 'entities/settings';
 import endGameSound from 'shared/assets/sounds/end_game.ogg';
-import { Modal } from 'shared/ui';
+import { HatchButton, Modal } from "shared/ui";
 
 import { END_GAME_STATE, GameWinners } from '../../lib';
 import { setGameWinner, startGame, TDeskSliceStore, TWinnerGame } from '../../model';
